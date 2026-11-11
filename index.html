@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer to Consumer - Green Vegetables</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🌱 Farmer to Consumer</h1>
+    <p>Fresh Green Vegetables Direct from Farms</p>
+  </header>
+
+  <nav>
+    <button class="nav-btn" onclick="showSection('home')">🏠 Home</button>
+    <button class="nav-btn" onclick="showSection('products')">🥦 Vegetables</button>
+    <button class="nav-btn" onclick="showSection('cart')">🛒 Cart</button>
+    <button class="nav-btn" onclick="showSection('delivery')">🚚 Delivery</button>
+    <button class="nav-btn" onclick="showSection('contact')">📞 Contact</button>
+    <button class="nav-btn" onclick="showSection('login')" id="loginBtn">🔑 Login</button>
+    <button class="nav-btn" onclick="showSection('register')" id="registerBtn">🧾 Register</button>
+
+    <!-- ✅ LOGOUT BUTTON ADDED -->
+    <button class="nav-btn" id="logoutBtn" onclick="logoutUser()" style="display:none;">🚪 Logout</button>
+  </nav>
+
+  <!-- Home -->
+  <div class="home-section" id="home">
+    <h2>Welcome to Farmer to Consumer</h2>
+    <p>Fresh vegetables delivered directly from farmers to your home.</p>
+    <p id="welcomeUser"></p>
+  </div>
+
+  <!-- Vegetables -->
+  <div class="container" id="products">
+    <h2>Available Vegetables</h2>
+    <div id="vegList"></div>
+  </div>
+
+  <!-- Cart -->
+  <div class="cart-section" id="cart">
+    <h2>🛒 Your Cart</h2>
+    <div id="cartItems"></div>
+
+    <!-- Payment -->
+    <div class="form-box" id="paymentBox" style="display:none;">
+      <h3>💳 Choose Payment Method</h3>
+      <label><input type="radio" name="payment" value="UPI" onchange="showPaymentDetails(this.value)"> UPI</label><br>
+      <label><input type="radio" name="payment" value="Card" onchange="showPaymentDetails(this.value)"> Card</label><br>
+      <label><input type="radio" name="payment" value="COD" onchange="showPaymentDetails(this.value)"> Cash on Delivery</label><br><br>
+
+      <div id="paymentDetails"></div>
+      <button class="btn" onclick="confirmPayment()">✅ Confirm Payment</button>
+    </div>
+  </div>
+
+  <!-- Delivery -->
+  <div class="delivery-section" id="delivery">
+    <h2>🚚 Delivery Address</h2>
+    <div class="form-box">
+      <label>Full Name:</label><input type="text" id="fullName">
+      <label>Phone Number:</label><input type="text" id="phoneNumber">
+      <label>Address:</label><textarea id="userAddress" rows="3"></textarea>
+      <label>Pincode:</label><input type="text" id="pincode">
+      <button class="btn" onclick="saveAddress()">Save Address</button>
+    </div>
+  </div>
+
+  <!-- Login -->
+  <div class="login-section" id="login">
+    <h2>🔑 User Login</h2>
+    <div class="form-box">
+      <label>Email:</label><input type="email" id="loginEmail">
+      <label>Password:</label><input type="password" id="loginPassword">
+      <button class="btn" onclick="loginUser()">Login</button>
+    </div>
+  </div>
+
+  <!-- Register -->
+  <div class="register-section" id="register">
+    <h2>🧾 Register Account</h2>
+    <div class="form-box">
+      <label>Full Name:</label><input type="text" id="regName">
+      <label>Email:</label><input type="email" id="regEmail">
+      <label>Password:</label><input type="password" id="regPassword">
+      <label>Confirm Password:</label><input type="password" id="regConfirmPassword">
+      <button class="btn" onclick="registerUser()">Register</button>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-section" id="contact">
+    <h2>Contact Farmer</h2>
+    <p><b>Name:</b> Nitin Prajapati</p>
+    <p><b>Phone:</b> +91 9528025612</p>
+    <p><b>Email:</b> nitinmit1220@gmail.com</p>
+  </div>
+
+  <footer>
+    <p>© 2025 Farmer to Consumer | All Rights Reserved</p>
+  </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
